@@ -6,18 +6,15 @@ public class StudentTuple {
     private int id;
     private String address;
 
-    StudentTuple(String name, int password, int id, String address) {
-        this.name = name;
-        this.password = password;
-        this.id = id;
-        this.address = address;
+    @SuppressWarnings("WeakerAccess")
+    public StudentTuple() {
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
@@ -25,7 +22,7 @@ public class StudentTuple {
         return password;
     }
 
-    public void setPassword(int password) {
+    void setPassword(int password) {
         this.password = password;
     }
 
@@ -33,7 +30,7 @@ public class StudentTuple {
         return id;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
@@ -41,7 +38,7 @@ public class StudentTuple {
         return address;
     }
 
-    public void setAddress(String address) {
+    void setAddress(String address) {
         this.address = address;
     }
 }

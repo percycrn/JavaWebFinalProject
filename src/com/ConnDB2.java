@@ -31,26 +31,29 @@ public class ConnDB2 extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, "root", "699685");
             Statement statement = connection.createStatement();
+            //String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
+            request.setCharacterEncoding("UTF-8");
             String name = request.getParameter("name");
             resultSet = statement.executeQuery("SELECT * FROM student");
-            int i = 0, j = 0;
             System.out.println(name);
+            int i = 0, j = 0;
             while (resultSet.next()) {
                 i++;
-                System.out.println(resultSet.getString("name"));
                 if (resultSet.getString("name").equals(name)) {
                     break;
                 }
                 j++;
             }
-            System.out.println(i + " " + j);
             HttpSession session = request.getSession();
             if (i != j) {
                 int password = Integer.valueOf(request.getParameter("password"));
                 if (password == resultSet.getInt("password")) {
                     session.setAttribute("loginMessage", "登陆成功");
-                    StudentTuple studentTuple = new StudentTuple(name, password,
-                            resultSet.getInt("id"), resultSet.getString("address"));
+                    StudentTuple studentTuple = new StudentTuple();
+                    studentTuple.setName(name);
+                    studentTuple.setPassword(password);
+                    studentTuple.setId(resultSet.getInt("id"));
+                    studentTuple.setAddress(resultSet.getString("address"));
                     session.setAttribute("studentTuple", studentTuple);
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher("/displayCustomer.jsp");
                     requestDispatcher.forward(request, response);

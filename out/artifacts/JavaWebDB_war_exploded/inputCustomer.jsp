@@ -1,6 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
-<head><title>输入客户信息</title></head>
+<head>
+    <title>输入客户信息</title>
+</head>
 <body>
 <h4>输入客户信息</h4>
 <form action="connDB2.do" method="post">
