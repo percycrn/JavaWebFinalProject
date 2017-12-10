@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <Context reloadable = "true">
 <Resource
@@ -11,3 +12,18 @@
       password="699685"
       url="jdbc:mysql://localhost:3306/javawebdbtest"/>
 </Context>
+=======
+<?xml version='1.0' encoding='utf-8'?>
+<Context reloadable="true">
+    <Resourse
+            name="jdbc/JavaWebDB"
+            type="javax.sql.DataSource"
+            maxActive="4"
+            maxIdle="2"
+            username="JavaWeb"
+            maxWait="5000"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            password="1234"
+            url="jdbc:sqlserver://localhost:1433;databaseName=JavaWebDB;"/>
+</Context>
+>>>>>>> 98294f258745b44a834196e668e7c1e0db65c949

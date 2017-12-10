@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/JavaWebDB.iml" filepath="$PROJECT_DIR$/JavaWebDB.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/JavaWebFinalProject.iml" filepath="$PROJECT_DIR$/JavaWebFinalProject.iml" />
+>>>>>>> 98294f258745b44a834196e668e7c1e0db65c949
     </modules>
   </component>
 </project>
