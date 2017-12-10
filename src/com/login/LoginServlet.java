@@ -1,44 +1,55 @@
 package com.login;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import com.ConnDB;
+
 import javax.servlet.annotation.WebServlet;
-import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
 
-    private DataSource dataSource;
+    private ConnDB connDB;
 
     @Override
     public void init() {
+        connDB = new ConnDB();
         try {
-            Context context = new InitialContext();
-            dataSource = (DataSource) context.lookup("java:comp/env/jdbc/JavaWebDB");
-        } catch (NamingException e) {
-            System.out.println("Exception: " + e);
+            connDB.setConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+        String action = request.getParameter("@action@");
+        request.setCharacterEncoding("UTF-8");
+        System.out.println(action);
         try {
-            Connection conn = dataSource.getConnection();
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from customer");
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("name"));
-                System.out.println(resultSet.getString("password"));
-                System.out.println(resultSet.getString("idCard"));
+            switch (action) {
+                case "login":
+                    String teleNumber = request.getParameter("teleNumber");
+                    String password = request.getParameter("password");
+                    System.out.println(teleNumber);
+                    System.out.println(password);
+                    if (!connDB.accountExist(teleNumber)) {
+                        System.out.println("account doesn't exist");
+                    } else if (!connDB.getPassword(teleNumber).equals(password)) {
+                        System.out.println("incorrect password");
+                    } else {
+                        System.out.println("success to login");
+                    }
+                    break;
+                case "register":
+                    break;
+                case "query":
+                    break;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
