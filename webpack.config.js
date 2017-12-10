@@ -4,8 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, './web'),
+    publicPath: '/web',
     filename: 'build.js'
   },
   module: {
@@ -46,6 +46,7 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    publicPath: "/web/",
     historyApiFallback: true,
     noInfo: true,
     overlay: true
