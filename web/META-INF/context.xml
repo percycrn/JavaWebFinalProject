@@ -1,13 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<Context reloadable="true">
+<Context>
     <Resourse
+            auth="Container"
             name="jdbc/JavaWebDB"
-            type="javax.sql.DataSource"
-            maxActive="4"
-            maxIdle="2"
-            username="JavaWeb"
-            maxWait="5000"
             driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            username="JavaWeb"
             password="1234"
-            url="jdbc:sqlserver://localhost:1433;databaseName=JavaWebDB;"/>
+            type="javax.sql.DataSource"
+            maxActive="100"
+            maxIdle="30"
+            maxWait="10000"
+            url="jdbc:sqlserver://localhost:1433;databaseName=JavaWebDB;">
+
+    </Resourse>
 </Context>
