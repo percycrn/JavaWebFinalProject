@@ -1,16 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Context>
-    <Resourse
+    <Resource
             auth="Container"
-            name="jdbc/JavaWebDB"
-            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-            username="JavaWeb"
-            password="1234"
             type="javax.sql.DataSource"
             maxActive="100"
             maxIdle="30"
             maxWait="10000"
+            name="jdbc/JavaWebDB"
+            username="JavaWeb"
+            password="1234"
+            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
             url="jdbc:sqlserver://localhost:1433;databaseName=JavaWebDB;">
-
-    </Resourse>
+    </Resource>
 </Context>
