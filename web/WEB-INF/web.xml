@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <resource-ref>
-        <description>SQL Server DB Connection</description>
-        <res-ref-name>jdbc/JavaWebDB</res-ref-name>
+        <description>MySQL DB Connection</description>
+        <res-ref-name>jdbc/HotelSystem</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>

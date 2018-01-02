@@ -1,4 +1,4 @@
-package com;
+package com.data_structure;
 
 public class Room {
     private String roomStyle;
@@ -7,7 +7,7 @@ public class Room {
     private String location;
     private String description;
 
-    public Room(){
+    public Room() {
 
     }
 
